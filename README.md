@@ -1,5 +1,3 @@
-# Readme for firstname-lastname-template
-
 # How to use this template to create your homepage
 This repository contains a template for the homepage of the LASTIG researchers. You can find below a tutorial to create your homepage using this template.
 
@@ -11,7 +9,7 @@ The website architecture is described in the image below. Github repositories ar
 
 A template to build a homepage is provided in the [firstname-lastname-template repository](https://github.com/umrlastig/firstname-lastname-template). The following sections of this tutorial explain how to use this template.
 
-To get invited in this LASTIG organization, please contact one of the administrators of the organization (for instance one person among Guillaume Touya, Imran Lokhat, Sidonie Christophe, Clément Mallet, Bruno Vallet, Arnaud Le Guilcher, Mathieu Brédif, Marie-Dominique Van Damme) with the login of your Github account.
+To get invited in this LASTIG organization, please contact one of the webmasters ([S. Mermet](https://github.com/orgs/umrlastig/people/smermet) or [M. Hersent](https://github.com/orgs/umrlastig/people/mhersent)) or one of the [administrators](https://github.com/orgs/umrlastig/people?query=role%3Aowner) of the organization with the login of your Github account.
 
 ## Create your homepage repository
 Once you are a member of the [UMR LASTIG organization](https://github.com/umrlastig/), you can create a new repository on the Github website by clicking on the green up-right button "New". Then, you have to give information on your repository (see the example in the image below). Please select a "Public" repository, it will help for the management of the website, and check the box "Initialize this repository with a README".
@@ -43,13 +41,17 @@ From now on, most of the work to create your homepage will be done from your des
 
 * Type git clone, and then paste the URL you copied just before
 
-> $ git clone https://github.com/umrlastig/your_repo_name.git
+```bash
+git clone https://github.com/umrlastig/your_repo_name.git
+```
 
 * Press Enter. Your local clone of the repository will be created.
 
 * Then, change the current working directory to the local firstname-lastname repository that you have just created and switch to the "gh-pages" branch you create earlier:
 
-> $ git checkout gh-pages
+```bash
+git checkout gh-pages
+```
 
 ### Clone with Github Desktop
 
@@ -82,15 +84,27 @@ The easiest way to do this is the following:
 
 ![Download zip file](img/local_files.png)
 
-Now, your website is ready but only in your local folder. You need to commit and push it to Github to have it available on the web. You can do both either with the Git shell or with Github desktop. Here is the command line with the Git shell (NB: If it is your first commit, you have to add your local files and repositories to Git's versionning system first: $ git add .):
+Now, your website is ready but only in your local folder. You need to add the files you want to commit, commit then push them to Github to have it available on the web. You can do both either with the Git shell or with Github desktop. Here is the command line with the Git shell. 
 
-> $ git commit -a -m "Commit the template"
+To add all files (new or modified) you can execute this command :
 
- Don't forget to push your new files to your remote Github repo after you commit them. Here is the command line if you don't use Desktop:
+```bash
+git add .
+```
 
-> $ git push origin gh-pages
+Then commit everything with :
 
-After the Push, if you look at the address of your homepage ("https://umrlastig.github.io/name_of_your_repo"), you should now see the template homepage rather than the README.md file. You are now ready to modify the template with your own information.
+```bash
+git commit -m "Commit the template"
+```
+
+Now, don't forget to push your new files to your remote Github repo whith this command :
+
+```bash
+git push origin gh-pages
+```
+
+Some time after the Push (the time to deploy your modifications), if you look at the address of your homepage ("https://umrlastig.github.io/name_of_your_repo"), you should now see the template homepage rather than the README.md file. You are now ready to modify the template with your own information.
 
 ## Fill the template with your personal information
 
@@ -104,71 +118,79 @@ This homepage is built with the Bootstrap framework, a simple framework for resp
 
 To update the content of the template, you just have to edit the html file **index.html**. For instance, to change the name that appears on top of the homepage, edit the html line below:
 
->     <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="about">
-      <div class="w-100">
-        <h1 class="mb-0">Guillaume
-          <span class="text-primary">Touya</span>
-        </h1>
-        ...
+```html
+<section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="about">
+  <div class="w-100">
+    <h1 class="mb-0">Guillaume
+      <span class="text-primary">Touya</span>
+    </h1>
+    ...
+```
 
 To change the style of the template, you have to edit the css file **resume.css** located in the *css* folder, and overwrite the properties of the webpage you want to change. For instance, to change the primary text color, i.e. the one used for your lastname, you have to change the color code in the code below:
 
-> .text-primary {
+```css
+.text-primary {
   color: #94c01a !important;
 }
+```
 
 The template contains more information than need for most homepages. You just need to comment or remove the parts of the code you don't need in **index.html**. For instance, if you don't need a news section, remove (or comment for later uses) the following block code:
 
->     <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="news">
-      <div class="w-100">
-        <h2 class="mb-5">News</h2>
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-          <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-          </ol>
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img src="img/orthez_google.png" class="d-block w-100" alt="...">
-              <div class="carousel-caption d-none d-md-block">
-                <h5>First news</h5>
-                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img src="img/orthez_IGN.png" class="d-block w-100" alt="...">
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Second news</h5>
-                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-              </div>
-            </div>
-            <div class="carousel-item">
-              <img src="img/orthez_OSM.png" class="d-block w-100" alt="...">
-              <div class="carousel-caption d-none d-md-block">
-                <h5>Third news</h5>
-                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-              </div>
-            </div>
+```html
+<section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="news">
+  <div class="w-100">
+    <h2 class="mb-5">News</h2>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="img/orthez_google.png" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>First news</h5>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
           </div>
-          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
+        </div>
+        <div class="carousel-item">
+          <img src="img/orthez_IGN.png" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Second news</h5>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="img/orthez_OSM.png" class="d-block w-100" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Third news</h5>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </div>
         </div>
       </div>
-    </section>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+</section>
+```
 
 Then, to remove the section from the left navigation bar, remove the following lines at the beginning of the document:
 
->         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger lang-en" href="#news">News</a>
-          <a class="nav-link js-scroll-trigger lang-fr" href="#news">Actualités</a>
-        </li>
+```html
+<li class="nav-item">
+  <a class="nav-link js-scroll-trigger lang-en" href="#news">News</a>
+  <a class="nav-link js-scroll-trigger lang-fr" href="#news">Actualités</a>
+</li>
+```
 
 Only some advanced modification of the template requires the edition of the main Javascript file of the template, *js/resume.js*.
 
@@ -177,9 +199,11 @@ If you want to put a photo (it is recommended but not forced), please use a squa
 
 The location of the photo file is defined in the first lines of the *index.html* (here img/touya.png):
 
->     <span class="d-none d-lg-block">
-        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/touya.png" alt="">
-      </span>
+```html
+<span class="d-none d-lg-block">
+  <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="img/touya.png" alt="">
+</span>
+```
 
 ### Publications
 
@@ -188,7 +212,9 @@ The "Publications" section is generated from the HAL repository of each research
 1. Fill your HAL repository with all your publications.
 2. Edit the HAL-id used when the page is loaded: in the index.html, modify the line below by changing 'guillaume-touya' to your own HAL-id.
 
-> \<body id="page-top" onload="reviewingVis('reviewing.json');getJournalPublicationsAuthor('guillaume-touya');getConfPublicationsAuthor('guillaume-touya');getBookPublicationsAuthor('guillaume-touya');getOtherPublicationsAuthor('guillaume-touya');">
+```html
+<body id="page-top" onload="reviewingVis('reviewing.json');getJournalPublicationsAuthor('guillaume-touya');getConfPublicationsAuthor('guillaume-touya');getBookPublicationsAuthor('guillaume-touya');getOtherPublicationsAuthor('guillaume-touya');">
+```
 
 3. If you want to change the style or the categories, please feel free to edit your copy of the hal.js library.
 
@@ -198,10 +224,12 @@ The "Publications" section is generated from the HAL repository of each research
 
 The *Experience* section is proposed in two ways in the template, a simple list presentation similar to the *Education* section, and a vertical timeline. You have to keep the one you prefer and remove the other from the *index.html* file. Be careful to keep the consistency between the **id** of the section and the one referenced in the navigation bar (see code below that refers to the timeline):
 
->         <li class="nav-item">
-          <a class="nav-link js-scroll-trigger lang-en" href="#timeline">Experience</a>
-          <a class="nav-link js-scroll-trigger lang-fr" href="#timeline">Parcours professionnel</a>
-        </li>
+```html
+<li class="nav-item">
+  <a class="nav-link js-scroll-trigger lang-en" href="#timeline">Experience</a>
+  <a class="nav-link js-scroll-trigger lang-fr" href="#timeline">Parcours professionnel</a>
+</li>
+```
 
 ### Reviewing
 For those who have reviewing activities, this template proposes a d3.js based visualization of reviewing activities.
@@ -218,11 +246,13 @@ Regarding the reviewing activities in *books*, the metadata to fill in the json 
 
 In the example below, there is only one book per year, so everything is put in the same "Books" line, but different lines can be used to cover several books reviewed in the same years.
 
-> "books": [
-    {"name": "Books", "role": "Reviewer", "year": 2013, "type": "BREW", "description": "Abstracting geographic information in a data rich world: methodologies and applications of map generalisation", "url": "https://www.springer.com/us/book/9783319002026"},
-    {"name": "Books", "role": "Reviewer", "year": 2014, "type": "BREW", "description": "OpenStreetMap in GIScience: experiences, research, and applications", "url": "https://www.springer.com/gp/book/9783319142791"},
-    {"name": "Books", "role": "Reviewer", "year": 2015, "type": "BREW", "description": "European Handbook of Crowdsourced Geographic Information", "url": "https://www.ubiquitypress.com/site/books/10.5334/bax/"}
+```json
+"books": [
+  {"name": "Books", "role": "Reviewer", "year": 2013, "type": "BREW", "description": "Abstracting geographic information in a data rich world: methodologies and applications of map generalisation", "url": "https://www.springer.com/us/book/9783319002026"},
+  {"name": "Books", "role": "Reviewer", "year": 2014, "type": "BREW", "description": "OpenStreetMap in GIScience: experiences, research, and applications", "url": "https://www.springer.com/gp/book/9783319142791"},
+  {"name": "Books", "role": "Reviewer", "year": 2015, "type": "BREW", "description": "European Handbook of Crowdsourced Geographic Information", "url": "https://www.ubiquitypress.com/site/books/10.5334/bax/"}
 ],
+```
 
 Regarding the reviewing activities in *journals*, the metadata to fill in the json files are the following:
 - *name*, i.e. the text that appears on the left of the line in the visualization, which is the short name of the journal or a short name that gathers several journals (for instance "Other GIS" below gathers reviewing activities in several journals where the activities are not regular enough to deserve a full line).
@@ -232,12 +262,14 @@ Regarding the reviewing activities in *journals*, the metadata to fill in the js
 - *description*, i.e. the full name of the journal ("Transactions in GIS" in the first example below, for the "TiGIS" name).
 - *url*, the URL of the journal, not of the reviewed papers.
 
->  "journals": [
-   {"name": "TiGIS", "role": "Reviewer", "year": 2011, "type": "JREW1", "description": "Transactions in GIS", "url": "https://onlinelibrary.wiley.com/journal/14679671"},
-   {"name": "IJGI", "role": "Reviewer", "year": 2012, "type": "JREW1", "description": "ISPRS International Journal of Geo-Information", "url": "https://www.mdpi.com/journal/ijgi"},
-   {"name": "IJGI", "role": "Reviewer", "year": 2013, "type": "JREW1", "description": "ISPRS International Journal of Geo-Information", "url": "https://www.mdpi.com/journal/ijgi"},
-   {"name": "Other GIS", "role": "Reviewer", "year": 2017, "type": "JREW1", "description": "Other journals in GIS", "url": ""},
+```json
+"journals": [
+  {"name": "TiGIS", "role": "Reviewer", "year": 2011, "type": "JREW1", "description": "Transactions in GIS", "url": "https://onlinelibrary.wiley.com/journal/14679671"},
+  {"name": "IJGI", "role": "Reviewer", "year": 2012, "type": "JREW1", "description": "ISPRS International Journal of Geo-Information", "url": "https://www.mdpi.com/journal/ijgi"},
+  {"name": "IJGI", "role": "Reviewer", "year": 2013, "type": "JREW1", "description": "ISPRS International Journal of Geo-Information", "url": "https://www.mdpi.com/journal/ijgi"},
+  {"name": "Other GIS", "role": "Reviewer", "year": 2017, "type": "JREW1", "description": "Other journals in GIS", "url": ""},
 ],
+```
 
 Regarding the reviewing activities in *conferences*, the metadata to fill in the json files are the following:
 - *name*, i.e. the text that appears on the left of the line in the visualization, which is the short name of the conference series (for instance "GeneICA" below stands for the reviewing activities in the ICA Workshops on Generalisation and Multiple Representation).
@@ -247,15 +279,18 @@ Regarding the reviewing activities in *conferences*, the metadata to fill in the
 - *description*, i.e. the full name of the conference.
 - *url*, the URL of the conference, not of the reviewed papers.
 
->  "conferences": [
-     {"name": "GeneICA", "role": "Reviewer", "year": 2011, "type": "CREW", "description": "14th ICA Workshop on Generalisation and Multiple Representation", "url": "https://generalisation.icaci.org/prevevents/72-workshop-2011-general-information.html"},
-     {"name": "GeneICA", "role": "Reviewer", "year": 2012, "type": "CREW", "description": "15th ICA Workshop on Generalisation and Multiple Representation", "url": "https://generalisation.icaci.org/prevevents/60-workshop-2012-general-info.html"},
-     {"name": "GeneICA", "role": "Reviewer", "year": 2013, "type": "CREW", "description": "16th ICA Workshop on Generalisation and Multiple Representation", "url": "https://generalisation.icaci.org/prevevents/43-workshop2013general.html"},
-  ],      
+```json
+"conferences": [
+  {"name": "GeneICA", "role": "Reviewer", "year": 2011, "type": "CREW", "description": "14th ICA Workshop on Generalisation and Multiple Representation", "url": "https://generalisation.icaci.org/prevevents/72-workshop-2011-general-information.html"},
+  {"name": "GeneICA", "role": "Reviewer", "year": 2012, "type": "CREW", "description": "15th ICA Workshop on Generalisation and Multiple Representation", "url": "https://generalisation.icaci.org/prevevents/60-workshop-2012-general-info.html"},
+  {"name": "GeneICA", "role": "Reviewer", "year": 2013, "type": "CREW", "description": "16th ICA Workshop on Generalisation and Multiple Representation", "url": "https://generalisation.icaci.org/prevevents/43-workshop2013general.html"},
+],
+```
 
 The rendering of the reviewing graphics is set up by default to fit the height and width necessary to show this years span, and this number of lines (journals/conferences). If your reviewing activities span from 2015 to 2019, you need to change the values in the constants declared in the **reviewing.js** file (see code below).
 
-> const CVIS = {
+```js
+const CVIS = {
     BOOK_LIST: ["Books"],
     JOUR_LIST: ["IJGIS", "CaGIS", "TiGIS", "JOSIS", "IJGI", "IJC", "Carto", "Other GIS", "SpatialCog", "IEEE", "ISPRS"],
     CONF_LIST: ["ICC", "GIScience", "GeneICA", "SAGEO", "ISPRS", "ISSDQ"],
@@ -270,21 +305,26 @@ The rendering of the reviewing graphics is set up by default to fit the height a
     CELL_STROKE: 2,
     CELL_MARGIN: 2,
 };
+```
 
 If you have more or less journals, you have to change the height of the graph. This can be done in the **reviewing.js** file: in the example below, the *320* corresponds to the height of the graph and can be changed if necessary.
 
->  reviewing4x(data.journals, CVIS.JOUR_LIST, LEGENDS.journals, "#revj", 320, "Journals");
-
+```js
+reviewing4x(data.journals, CVIS.JOUR_LIST, LEGENDS.journals, "#revj", 320, "Journals");
+```
 
 ### Languages
 The homepage is available in two languages for now, French and English. You just have to use the checkbox to switch the language. The language switch works with the html classes "lang-en" and "lang-fr": when the language is English, the html components with the class "lang-fr" are hidden and when the language is set to French, the components with class "lang-en" are hidden. So, you just have to double each text component in the index.html to allow different languages. For instance, this piece of code below adds a navigation bar entry displayed "About" in English and "Présentation" in French
 
->     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link js-scroll-trigger lang-en" href="#about">About</a>
-          <a class="nav-link js-scroll-trigger lang-fr" href="#about">Présentation</a>
-        </li>
+```json
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link js-scroll-trigger lang-en" href="#about">About</a>
+      <a class="nav-link js-scroll-trigger lang-fr" href="#about">Présentation</a>
+    </li>
+  ...
+```
 
 ## Copyright and License
 
